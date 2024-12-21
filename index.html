@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image & Music</title>
+</head>
+<body>
+    <h1>Upload Your Image and Music Files</h1>
+
+    <!-- Form to upload image and music (with multiple file input) -->
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
+        <label for="fileUpload">Select Image and Music (JPEG, PNG, GIF, MP3):</label>
+        <input type="file" id="fileUpload" name="files[]" accept="image/*,audio/mpeg" multiple required><br><br>
+        <button type="submit">Upload</button>
+    </form>
+
+    <?php if (isset($_GET['message'])): ?>
+        <p><?= htmlspecialchars($_GET['message']); ?></p>
+    <?php endif; ?>
+</body>
+</html>
